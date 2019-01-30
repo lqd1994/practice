@@ -24,7 +24,7 @@ def getClosest(trainDataMat, trainLabelMat, x, topK):
 
     topKList = np.argsort(np.array(distList))[:topK]
     labelList = [0] * 10
-    for index in topKList:
+    for index in topKList: #根据标签的名称给所属于的类别打分
         labelList[int(trainLabelMat[index])] += 1
     return labelList.index(max(labelList))
 
