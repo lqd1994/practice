@@ -2,14 +2,14 @@ import numpy as np
 import time
 
 def loadData(filename):
-    daraArr = []; labelArr = []
+    dataArr = []; labelArr = []
     fr = open(filename)
     for line in fr.readlines():
         curLine = line.strip().split(',')
-        daraArr.append([int(int(num)>128) for num in curLine[1:]])
+        dataArr.append([int(int(num)>128) for num in curLine[1:]])
         #上面这行进行了二值化处理，大于128的都改成1了,int(bool)会变成0和1
         labelArr.append(curLine[0])
-    return daraArr,labelArr
+    return dataArr,labelArr
 
 def NaiveBayes(Py, Px_y, x):
     # Py 先验概率分布  Px_y 条件概率分布  x 要估计的样本x
